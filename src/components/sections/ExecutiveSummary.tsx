@@ -1,8 +1,9 @@
 "use client";
 
-import { executiveSummary } from "@/content/audit-data";
+import { executiveSummary, whyThisMattersNow, biggestMissedOpportunities } from "@/content/audit-data";
 import { SectionHeader } from "@/components/SectionHeader";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { Tooltip } from "@/components/Tooltip";
 
 const iconMap: Record<string, React.ReactNode> = {
   alert: (
@@ -23,6 +24,13 @@ const iconMap: Record<string, React.ReactNode> = {
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="11" cy="11" r="8" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  ),
+  globe: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
   check: (
@@ -63,7 +71,11 @@ export function ExecutiveSummary() {
                     Top Priority
                   </p>
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                    {executiveSummary.topPriority}
+                    Mobile page speed is critical &mdash; a 58/100{" "}
+                    <Tooltip term="Performance Score" definition="Google's overall speed rating from 0 to 100. Below 50 is poor, 50-89 needs improvement, 90+ is good.">Performance score</Tooltip>{" "}
+                    means every paid ad click on mobile lands on a slow experience. With a 6.8-second{" "}
+                    <Tooltip term="LCP (Largest Contentful Paint)" definition="How long it takes for the biggest visible element on your page (usually the main image or headline) to fully appear. Under 2.5 seconds is good.">LCP (time it takes for main content to load)</Tooltip>,
+                    over half your mobile visitors leave before seeing your content.
                   </p>
                 </div>
               </div>
@@ -72,7 +84,7 @@ export function ExecutiveSummary() {
         </AnimateOnScroll>
 
         {/* Key findings grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {executiveSummary.keyFindings.map((finding, i) => (
             <AnimateOnScroll key={finding.title} delay={i * 100}>
               <div className="group rounded-xl border border-border/60 bg-card/30 p-6 hover:border-copper/30 hover:bg-card/50 transition-all duration-300">
@@ -93,6 +105,40 @@ export function ExecutiveSummary() {
             </AnimateOnScroll>
           ))}
         </div>
+
+        {/* Why this matters now */}
+        <AnimateOnScroll delay={500} className="mb-12">
+          <div className="rounded-xl border border-copper/20 bg-copper/[0.04] p-6 md:p-8">
+            <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-copper mb-4">
+              Why this matters now
+            </h3>
+            <ul className="space-y-3">
+              {whyThisMattersNow.map((point, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-copper/50 shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Biggest missed opportunities */}
+        <AnimateOnScroll delay={600}>
+          <div className="rounded-xl border border-score-critical/20 bg-score-critical/[0.03] p-6 md:p-8">
+            <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-score-critical mb-4">
+              Biggest missed opportunities
+            </h3>
+            <ul className="space-y-3">
+              {biggestMissedOpportunities.map((opp, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-score-critical/40 shrink-0" />
+                  {opp}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

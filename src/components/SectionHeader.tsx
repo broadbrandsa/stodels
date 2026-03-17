@@ -12,7 +12,7 @@ export function SectionHeader({ eyebrow, title, description }: SectionHeaderProp
       <p className="mb-3 text-xs font-semibold tracking-[0.2em] uppercase text-copper">
         {eyebrow}
       </p>
-      <h2 className="font-serif text-3xl md:text-5xl leading-[1.1] text-foreground mb-4">
+      <h2 className="font-sans text-3xl md:text-5xl leading-[1.1] text-foreground mb-4">
         {title}
       </h2>
       {description && (

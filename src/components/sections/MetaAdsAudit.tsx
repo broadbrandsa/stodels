@@ -28,9 +28,25 @@ export function MetaAdsAudit() {
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Meta Advertising"
-          title="7 active ads, no funnel"
-          description="Your Meta ads show good creative variety — but without structure, they can't build momentum."
+          title="7 active ads, opportunity for structure"
+          description="Your Meta ads show good creative variety. Based on publicly visible data, there is an opportunity to add more structure to guide customers through a journey from awareness to purchase."
         />
+
+        <AnimateOnScroll className="mb-8 -mt-4">
+          <a
+            href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&source=page-transparency-widget&view_all_page_id=160373593983370"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-copper hover:text-copper-light transition-colors"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            View in Meta Ad Library
+          </a>
+        </AnimateOnScroll>
 
         {/* Active ads table */}
         <AnimateOnScroll className="mb-16">
@@ -65,7 +81,7 @@ export function MetaAdsAudit() {
                       <td className="px-5 py-4">
                         <Badge
                           variant="outline"
-                          className={`text-[10px] font-semibold ${typeColors[ad.type] || ""}`}
+                          className={`text-[11px] font-semibold ${typeColors[ad.type] || ""}`}
                         >
                           {ad.type}
                         </Badge>
@@ -115,24 +131,32 @@ export function MetaAdsAudit() {
                   <line x1="12" y1="8" x2="12" y2="12" />
                   <line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
-                Issues Found
+                Opportunities Identified
               </h3>
               <div className="space-y-4">
                 {metaAds.issues.map((issue, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <Badge
-                      variant="outline"
-                      className={`mt-0.5 text-[10px] font-bold shrink-0 ${priorityColors[issue.priority]}`}
-                    >
-                      {issue.priority}
-                    </Badge>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        {issue.title}
-                      </p>
-                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                        {issue.detail}
-                      </p>
+                  <div key={i}>
+                    <div className="flex items-start gap-3">
+                      <Badge
+                        variant="outline"
+                        className={`mt-0.5 text-[11px] font-bold shrink-0 ${priorityColors[issue.priority]}`}
+                      >
+                        {issue.priority}
+                      </Badge>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">
+                          {issue.title}
+                        </p>
+                        <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                          {issue.detail}
+                        </p>
+                        {"businessImpact" in issue && issue.businessImpact && (
+                          <div className="rounded-lg border border-copper/15 bg-copper/[0.03] p-3 mt-2">
+                            <p className="text-[11px] font-semibold tracking-wider uppercase text-copper mb-0.5">What this means</p>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{issue.businessImpact}</p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}

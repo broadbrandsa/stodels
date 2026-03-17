@@ -1,14 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const links = [
   { label: "Scorecard", href: "#scorecard" },
   { label: "Summary", href: "#summary" },
+  { label: "Opportunity", href: "#opportunity" },
+  { label: "Speed", href: "#waste" },
+  { label: "Performance", href: "#performance" },
   { label: "Meta Ads", href: "#meta" },
   { label: "Google Ads", href: "#google" },
-  { label: "Performance", href: "#performance" },
-  { label: "Wasted Spend", href: "#waste" },
+  { label: "SEO", href: "#seo" },
+{ label: "Content", href: "#content-gaps" },
+  { label: "Local SEO", href: "#local-seo" },
   { label: "Action Plan", href: "#plan" },
 ];
 
@@ -51,13 +56,18 @@ export function Navigation() {
     >
       <div className="glass border-b border-border/30">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className="font-serif text-lg text-copper">S</span>
-          <div className="hidden md:flex items-center gap-1">
+          <Image
+              src="/StodelsLogo.svg"
+              alt="Stodels"
+              width={100}
+              height={22}
+            />
+          <div className="hidden lg:flex items-center gap-0.5">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-md text-xs font-medium tracking-wide transition-colors ${
+                className={`px-2 py-1.5 rounded-md text-[11px] font-medium tracking-wide transition-colors ${
                   active === link.href.slice(1)
                     ? "text-copper bg-copper/10"
                     : "text-muted-foreground hover:text-foreground"

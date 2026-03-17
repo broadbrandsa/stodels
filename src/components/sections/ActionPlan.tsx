@@ -1,6 +1,6 @@
 "use client";
 
-import { actionPlan } from "@/content/audit-data";
+import { actionPlan, actionPlanFraming } from "@/content/audit-data";
 import { SectionHeader } from "@/components/SectionHeader";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
@@ -20,10 +20,27 @@ export function ActionPlan() {
         <SectionHeader
           eyebrow="Action Plan"
           title="A clear path forward"
-          description="Prioritized by impact — emergency fixes first, then build the machine."
+          description="Prioritised by impact &mdash; emergency fixes first, then build the machine."
         />
 
-        <div className="relative">
+        {/* Commercial framing */}
+        <AnimateOnScroll className="mb-12">
+          <div className="rounded-xl border border-copper/20 bg-copper/[0.04] p-6">
+            <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-copper mb-4">
+              What this plan is designed to do
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {actionPlanFraming.map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-copper/50 shrink-0" />
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        <div className="relative mb-16">
           {/* Timeline line */}
           <div className="absolute left-5 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-score-critical via-score-needs-work to-score-good hidden md:block" />
 
@@ -44,7 +61,7 @@ export function ActionPlan() {
                         <span className={`text-xs font-bold tracking-wider uppercase ${colors.text}`}>
                           {phase.phase}
                         </span>
-                        <span className="text-sm font-serif text-foreground">
+                        <span className="text-sm font-semibold text-foreground">
                           {phase.title}
                         </span>
                       </div>
@@ -63,6 +80,7 @@ export function ActionPlan() {
             })}
           </div>
         </div>
+
       </div>
     </section>
   );

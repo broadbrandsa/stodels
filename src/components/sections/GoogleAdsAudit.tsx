@@ -19,31 +19,24 @@ export function GoogleAdsAudit() {
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Google Advertising"
-          title="High volume, unclear returns"
-          description="Significant ad spend with structural gaps that likely erode ROAS."
+          title="High volume, limited visibility into structure"
+          description="A large number of ads are visible in the Google Ads Transparency Center, indicating active use of Google Ads. However, campaign structure, targeting, and performance cannot be confirmed without account access."
         />
 
-        {/* Spend estimate callout */}
-        <AnimateOnScroll className="mb-12">
-          <div className="rounded-xl border border-copper/20 bg-card/50 p-6 flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="shrink-0 w-12 h-12 rounded-lg bg-copper/10 flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-copper">
-                <line x1="12" y1="1" x2="12" y2="23" />
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-wider uppercase text-copper/70 mb-1">
-                Estimated Monthly Spend
-              </p>
-              <p className="text-2xl font-serif text-foreground">
-                {googleAds.estimatedSpend}
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Based on observed ad volume in Google Ads Transparency Center
-              </p>
-            </div>
-          </div>
+        <AnimateOnScroll className="mb-8 -mt-4">
+          <a
+            href="https://adstransparency.google.com/?region=ZA&domain=stodels.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-copper hover:text-copper-light transition-colors"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            View in Google Ads Transparency Center
+          </a>
         </AnimateOnScroll>
 
         {/* Issues */}
@@ -53,7 +46,7 @@ export function GoogleAdsAudit() {
               <div className="rounded-xl border border-border/60 bg-card/30 p-6 hover:border-copper/20 transition-colors">
                 <div className="flex items-start gap-4">
                   <div className="shrink-0 flex flex-col items-center gap-2">
-                    <span className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-serif text-copper">
+                    <span className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-sans text-copper">
                       {i + 1}
                     </span>
                     {i < googleAds.issues.length - 1 && (
@@ -67,7 +60,7 @@ export function GoogleAdsAudit() {
                       </h3>
                       <Badge
                         variant="outline"
-                        className={`text-[10px] font-bold ${priorityColors[issue.priority]}`}
+                        className={`text-[11px] font-bold ${priorityColors[issue.priority]}`}
                       >
                         {issue.priority}
                       </Badge>
@@ -75,6 +68,12 @@ export function GoogleAdsAudit() {
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {issue.detail}
                     </p>
+                    {"businessImpact" in issue && issue.businessImpact && (
+                      <div className="rounded-lg border border-copper/15 bg-copper/[0.03] p-4 mt-3">
+                        <p className="text-xs font-semibold tracking-wider uppercase text-copper mb-1">What this means</p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{issue.businessImpact}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

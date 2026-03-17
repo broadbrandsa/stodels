@@ -106,10 +106,10 @@ export function ScoreRing({
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="font-serif text-2xl" style={{ color }}>
+          <span className="font-sans text-2xl" style={{ color }}>
             {displayScore}
           </span>
-          <span className="text-[10px] text-muted-foreground">/{max}</span>
+          <span className="text-[11px] text-muted-foreground">/{max}</span>
         </div>
       </div>
       <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">

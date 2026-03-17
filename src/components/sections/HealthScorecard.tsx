@@ -12,10 +12,10 @@ export function HealthScorecard() {
         <SectionHeader
           eyebrow="Health Scorecard"
           title="Where you stand today"
-          description="Seven key dimensions of your digital marketing health, scored from our independent audit."
+          description="Eight key dimensions of your digital marketing health, scored from our independent audit."
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 md:gap-6">
           {healthScores.map((item, i) => (
             <AnimateOnScroll key={item.label} delay={i * 80}>
               <ScoreRing
