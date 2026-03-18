@@ -34,7 +34,7 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 text-center">
         {/* Stodels Logo */}
         <div
           className="mb-8"
@@ -107,6 +107,30 @@ export function Hero() {
         >
           Prepared March 17, 2026 &middot; By Broadbrand
         </p>
+
+        {/* Example Brand Story button */}
+        <div
+          className="mb-12"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(16px)",
+            transition: "all 0.7s ease-out 1.0s",
+          }}
+        >
+          <a
+            href="https://preview.nws.ai/mikee_tester/stodels-2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-copper/30 bg-copper/10 text-copper text-sm font-medium tracking-wide hover:bg-copper/20 hover:border-copper/50 transition-colors duration-300"
+          >
+            Example Brand Story
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </div>
 
         {/* Score badge */}
         <div
