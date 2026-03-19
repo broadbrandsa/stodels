@@ -19,7 +19,8 @@ export function ProposalCTA() {
               </p>
               <Link
                 href="/proposal"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-copper text-background font-semibold text-sm tracking-wide hover:bg-copper-light transition-colors copper-glow"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-[#fabb00] text-background font-semibold text-sm tracking-wide hover:bg-[#e0a800] transition-colors"
+                style={{ boxShadow: "0 0 40px rgba(250, 187, 0, 0.2)" }}
               >
                 View Our Proposal
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
