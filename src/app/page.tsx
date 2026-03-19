@@ -13,6 +13,7 @@ import { ContentGaps } from "@/components/sections/ContentGaps";
 import { LocalSEO } from "@/components/sections/LocalSEO";
 import { ActionPlan } from "@/components/sections/ActionPlan";
 import { NextSteps } from "@/components/sections/NextSteps";
+import { ProposalCTA } from "@/components/sections/ProposalCTA";
 
 export default function Home() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
         <div id="plan">
           <ActionPlan />
         </div>
+        <ProposalCTA />
         <div id="next-steps">
           <NextSteps />
         </div>
