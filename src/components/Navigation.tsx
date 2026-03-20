@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
   { label: "Scorecard", href: "#scorecard" },
@@ -77,12 +78,20 @@ export function Navigation() {
               </a>
             ))}
           </div>
-          <a
-            href="#next-steps"
-            className="px-4 py-1.5 rounded-md bg-copper/10 text-copper text-xs font-semibold tracking-wide hover:bg-copper/20 transition-colors"
-          >
-            Get Started
-          </a>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/proposal"
+              className="px-4 py-1.5 rounded-md bg-[#fabb00]/15 text-[#fabb00] text-xs font-semibold tracking-wide hover:bg-[#fabb00]/25 transition-colors"
+            >
+              Proposal
+            </Link>
+            <a
+              href="#next-steps"
+              className="px-4 py-1.5 rounded-md bg-copper/10 text-copper text-xs font-semibold tracking-wide hover:bg-copper/20 transition-colors"
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -373,7 +373,7 @@ function PaidAdsDetail() {
         <SectionHeader
           eyebrow="Service Detail"
           title="Paid Advertising Management"
-          description="R12,000/month \u00b7 Restructure for performance"
+          description="R12,000/month, Restructure for performance"
         />
 
         <AnimateOnScroll className="mb-12">
@@ -443,7 +443,7 @@ function WebPerfDetail() {
         <SectionHeader
           eyebrow="Service Detail"
           title="Website Performance & Technical Optimisation"
-          description="R8,000/month \u00b7 Close the speed gap"
+          description="R8,000/month, Close the speed gap"
         />
 
         <AnimateOnScroll className="mb-12">
@@ -493,7 +493,7 @@ function SEOContentDetail() {
         <SectionHeader
           eyebrow="Service Detail"
           title="SEO & Content"
-          description="R10,000/month \u00b7 Build the organic channel"
+          description="R10,000/month, Build the organic channel"
         />
 
         <AnimateOnScroll className="mb-12">
@@ -552,7 +552,7 @@ function LocalSEODetail() {
         <SectionHeader
           eyebrow="Service Detail"
           title="Local SEO & Google Business Profile"
-          description="R5,000/month \u00b7 7 stores, 7 local search opportunities"
+          description="R5,000/month, 7 stores, 7 local search opportunities"
         />
 
         <AnimateOnScroll className="mb-12">
@@ -622,7 +622,7 @@ function EcommerceCRO() {
         <SectionHeader
           eyebrow="Service Detail"
           title="E-commerce Conversion Optimisation"
-          description="R6,000/month \u00b7 Turn more visitors into buyers"
+          description="R6,000/month, Turn more visitors into buyers"
         />
 
         <AnimateOnScroll className="mb-12">
@@ -703,7 +703,7 @@ function ReportingDetail() {
         <SectionHeader
           eyebrow="Service Detail"
           title="Reporting & Strategy"
-          description="R4,000/month \u00b7 Know what\u2019s working"
+          description="R4,000/month, Know what\u2019s working"
         />
 
         <AnimateOnScroll>
